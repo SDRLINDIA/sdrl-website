@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SDRL | Transport Brokerage & Vehicle Allocation</title>
-  <meta name="description" content="SDRL connects company transport requirements with suitable cargo owners and vehicles." />
+  <title>Shree Durga Road Lines (SDRL) | Transport Brokerage & Vehicle Allocation</title>
+  <meta name="description" content="Shree Durga Road Lines (SDRL) connects company transport requirements with suitable cargo and vehicle owners for road transportation." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:title" content="Shree Durga Road Lines (SDRL)" />
+  <meta property="og:description" content="Transport brokerage and vehicle allocation." />
+  <meta property="og:image" content="https://sdrl.co.in/site-thumbnail.png" />
   <style>
     :root{
       --navy:#082e5c;
@@ -36,12 +41,7 @@
     }
     nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:flex;align-items:center;gap:12px}
-    .mark{
-      width:47px;height:47px;border-radius:14px;
-      background:linear-gradient(145deg,var(--gold2),var(--gold));
-      display:grid;place-items:center;color:white;font-weight:900;
-      box-shadow:0 8px 20px rgba(217,150,20,.22)
-    }
+    .brand-logo{width:52px;height:52px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 8px 20px rgba(8,46,92,.18)}
     .brand strong{display:block;font-size:26px;color:var(--navy);letter-spacing:.5px}
     .brand small{display:block;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1.7px}
     .links{display:flex;align-items:center;gap:24px}
@@ -168,13 +168,13 @@
   <div class="container">
     <nav>
       <a class="brand" href="#home">
-        <div class="mark">S</div>
-        <div><strong>SDRL</strong><small>TRANSPORT BROKER</small></div>
+        <img class="brand-logo" src="sdrl-logo.jpg" alt="SDRL logo">
+        <div><strong>SDRL</strong><small>SHREE DURGA ROAD LINES</small></div>
       </a>
       <div class="links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#cargokhata">CargoKhata</a>
+        <a href="cargokhata.html">CargoKhata</a>
         <a class="btn btn-gold" href="#contact">Contact Us</a>
       </div>
     </nav>
@@ -210,7 +210,7 @@
       <div>
         <div class="kicker">About SDRL</div>
         <h2>A simple link between transport demand and vehicle supply.</h2>
-        <p class="lead">SDRL operates as a transport broker. We receive transport requirements from companies and coordinate with cargo owners and vehicle partners to arrange suitable road transportation.</p>
+        <p class="lead"><strong>Shree Durga Road Lines (SDRL)</strong> operates as a transport broker. We receive transport requirements from companies and coordinate with cargo owners and vehicle partners to arrange suitable road transportation.</p>
       </div>
       <div class="panel">
         <h3>Our focus</h3>
@@ -246,7 +246,7 @@
         <p class="lead">CargoKhata login will be added here later. For now, we are keeping the website focused only on SDRL's transport brokerage business.</p>
       </div>
       <div>
-        <span class="disabled">CargoKhata Login — Coming Soon</span>
+        <a class="btn btn-gold" href="cargokhata.html">Explore CargoKhata →</a>
       </div>
     </div>
   </section>
@@ -255,11 +255,12 @@
     <div class="container">
       <div class="kicker">Contact SDRL</div>
       <h2>Have a transport requirement?</h2>
-      <p>We will add SDRL's official phone, email and business address here before the final public version.</p>
-      <div class="contact-box">
+      <p>For transport enquiries, please use the business details below. Phone and email can be added when you provide the official company contact.</p>
+      <div class="contact-box" style="grid-template-columns:repeat(2,1fr)">
+        <div><small>Business Name</small><strong>Shree Durga Road Lines</strong></div>
         <div><small>Website</small><strong>sdrl.co.in</strong></div>
-        <div><small>Phone / WhatsApp</small><strong>To be updated</strong></div>
-        <div><small>Email</small><strong>To be updated</strong></div>
+        <div><small>Business Address</small><strong>Club House Building, Larica Township, Barrackpore Barasat Road, Barasat, Kolkata - 700126</strong></div>
+        <div><small>GSTIN</small><strong>19DOSPM2345B1ZS</strong></div>
       </div>
     </div>
   </section>
@@ -267,8 +268,8 @@
 
 <footer>
   <div class="container foot">
-    <div><strong style="color:white">SDRL</strong> — Transport Brokerage & Vehicle Allocation</div>
-    <div>© 2026 SDRL. All rights reserved.</div>
+    <div><strong style="color:white">Shree Durga Road Lines (SDRL)</strong> — Transport Brokerage & Vehicle Allocation</div>
+    <div>GSTIN: 19DOSPM2345B1ZS &nbsp; | &nbsp; © 2026 Shree Durga Road Lines</div>
   </div>
 </footer>
 </body>

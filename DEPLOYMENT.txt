@@ -40,3 +40,35 @@ IMPORTANT:
 Future:
 - sdrl.co.in = SDRL marketing website
 - app.sdrl.co.in = CargoKhata application login
+
+
+CARGOKHATA PAGE
+---------------
+Upload cargokhata.html to the SAME repository root.
+The SDRL homepage now links to:
+https://sdrl.co.in/cargokhata.html
+
+Later the live application can use:
+https://app.sdrl.co.in
+
+
+LATEST UPDATE
+-------------
+Upload/replace these files in the same GitHub repository root:
+- index.html
+- cargokhata.html
+- sdrl-hero.jpg
+- sdrl-logo.jpg
+- favicon.png
+- apple-touch-icon.png
+- site-thumbnail.png
+- CNAME
+
+The favicon/site thumbnail uses the uploaded SDRL logo.
+
+Business details added:
+Shree Durga Road Lines
+Club House Building, Larica Township, Barrackpore Barasat Road, Barasat, Kolkata - 700126
+GSTIN: 19DOSPM2345B1ZS
+
+No phone/email has been invented. Add official contact details later.

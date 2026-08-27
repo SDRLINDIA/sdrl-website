@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CargoKhata by SDRL | Transport Accounting & Management</title>
+  <meta name="description" content="CargoKhata by Shree Durga Road Lines (SDRL) - transport accounting and management software coming soon." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:image" content="https://sdrl.co.in/site-thumbnail.png" />
+  <style>
+    :root{
+      --navy:#082e5c;
+      --navy2:#0d3c72;
+      --orange:#ef7c1a;
+      --gold:#d99614;
+      --ink:#14243a;
+      --muted:#64748b;
+      --soft:#f6f9fc;
+      --line:#dbe5ef;
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      line-height:1.55;
+      background:white;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,calc(100% - 36px));margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
+      backdrop-filter:blur(10px);border-bottom:1px solid var(--line)
+    }
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{width:50px;height:50px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 8px 20px rgba(8,46,92,.18)}
+    .brand strong{display:block;font-size:25px;color:var(--navy)}
+    .brand small{display:block;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.5px}
+    .links{display:flex;align-items:center;gap:22px}
+    .links a{font-size:14px;font-weight:750}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:10px;font-weight:850
+    }
+    .btn-orange{background:var(--orange);color:white}
+    .btn-outline{border:1px solid #b7c5d4;color:var(--navy);background:white}
+    .hero{
+      background:
+        radial-gradient(circle at 82% 12%,rgba(239,124,26,.25),transparent 28%),
+        linear-gradient(130deg,#061e3a 0%,#0a3768 66%,#0c447e 100%);
+      color:white;padding:96px 0 88px
+    }
+    .badge{
+      display:inline-block;padding:7px 11px;border-radius:999px;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+      color:#ffd09f;font-size:12px;font-weight:900;letter-spacing:1.2px
+    }
+    h1{
+      font-size:clamp(50px,7vw,82px);line-height:.98;letter-spacing:-3px;
+      margin:20px 0 18px
+    }
+    h1 span{color:var(--orange)}
+    .hero p{font-size:19px;color:#d7e5f3;max-width:760px;margin:0 0 28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    section{padding:76px 0}
+    .kicker{font-size:12px;font-weight:900;letter-spacing:1.7px;color:var(--orange);text-transform:uppercase}
+    h2{font-size:clamp(30px,4vw,45px);line-height:1.1;color:var(--navy);margin:8px 0 13px;letter-spacing:-1px}
+    .lead{font-size:17px;color:var(--muted);max-width:760px}
+    .features{background:var(--soft)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:30px}
+    .card{background:white;border:1px solid var(--line);border-radius:17px;padding:23px}
+    .card strong{display:block;color:var(--navy);font-size:18px;margin-bottom:7px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .coming{
+      background:linear-gradient(120deg,#fff7ea,#fff 60%,#eef5fb);
+      border-top:1px solid #f1dfba;border-bottom:1px solid #f1dfba
+    }
+    .coming-box{
+      border:1px solid var(--line);border-radius:20px;background:white;
+      padding:34px;box-shadow:0 15px 40px rgba(8,46,92,.08)
+    }
+    .status{
+      display:inline-block;padding:7px 11px;border-radius:999px;
+      background:#fff0dd;color:#a65b00;font-weight:900;font-size:12px
+    }
+    .disabled{
+      display:inline-flex;padding:13px 20px;border-radius:10px;
+      background:#dde4eb;color:#748195;font-weight:850;margin-top:18px
+    }
+    footer{background:#041526;color:#aebed0;padding:24px 0;font-size:13px}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    @media(max-width:800px){
+      .links a:not(.btn){display:none}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1160px)}
+      .grid{grid-template-columns:1fr}
+      h1{font-size:50px}
+      .foot{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="sdrl-logo.jpg" alt="SDRL logo">
+        <div><strong>CargoKhata</strong><small>BY SHREE DURGA ROAD LINES (SDRL)</small></div>
+      </a>
+      <div class="links">
+        <a href="index.html">SDRL Home</a>
+        <a href="#features">Features</a>
+        <a class="btn btn-outline" href="index.html#contact">Contact SDRL</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="badge">COMING SOON • BY SDRL</div>
+      <h1>Cargo<span>Khata</span></h1>
+      <p>Our transport accounting and business management application — being built for transport brokers, cargo owners and growing transport businesses.</p>
+      <div class="hero-actions">
+        <a class="btn btn-orange" href="#features">See What’s Coming</a>
+        <a class="btn btn-outline" href="index.html">← Back to SDRL</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="kicker">CargoKhata</div>
+      <h2>Transport management, all in one place.</h2>
+      <p class="lead">For now this is only a basic product preview. The actual login, subscription and accounting application will be added later.</p>
+
+      <div class="grid">
+        <div class="card"><strong>Booking</strong><p>Transport booking and trip management.</p></div>
+        <div class="card"><strong>Billing</strong><p>Customer billing and transport cost tracking.</p></div>
+        <div class="card"><strong>Party Khata</strong><p>Manage customers, transporters and vehicle owners.</p></div>
+        <div class="card"><strong>Vehicles & Drivers</strong><p>Maintain vehicle and driver records.</p></div>
+        <div class="card"><strong>Documents</strong><p>Keep LR, POD and related documents organised.</p></div>
+        <div class="card"><strong>Reports</strong><p>Business, outstanding and profitability reports.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coming">
+    <div class="container">
+      <div class="coming-box">
+        <span class="status">APP LOGIN COMING LATER</span>
+        <h2 style="font-size:32px">CargoKhata application is under development.</h2>
+        <p class="lead">When the application is ready, this page will contain the real login button and will open the CargoKhata platform at <strong>app.sdrl.co.in</strong>.</p>
+        <span class="disabled">CargoKhata Login — Coming Soon</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div><strong style="color:white">CargoKhata by Shree Durga Road Lines (SDRL)</strong></div>
+    <div>© 2026 Shree Durga Road Lines. All rights reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
