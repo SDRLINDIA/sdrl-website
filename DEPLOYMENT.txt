@@ -1,0 +1,42 @@
+SDRL BASIC WEBSITE - DEPLOYMENT
+
+Recommended FREE hosting: GitHub Pages
+
+Files:
+- index.html
+- CNAME
+
+1. Create a PUBLIC GitHub repository named: sdrl-website
+2. Upload index.html and CNAME to the root of the repository.
+3. Repository -> Settings -> Pages.
+4. Build and deployment:
+   Source: Deploy from a branch
+   Branch: main
+   Folder: /(root)
+   Save.
+5. Under Custom domain enter:
+   sdrl.co.in
+   Save.
+
+HOSTINGER DNS
+Hostinger hPanel -> Domains -> Domain portfolio -> sdrl.co.in -> Manage -> DNS / Nameservers -> DNS records.
+
+For the ROOT domain create these FOUR A records:
+Type A | Name @ | 185.199.108.153
+Type A | Name @ | 185.199.109.153
+Type A | Name @ | 185.199.110.153
+Type A | Name @ | 185.199.111.153
+
+For WWW:
+Type CNAME | Name www | YOUR-GITHUB-USERNAME.github.io
+
+IMPORTANT:
+- Replace YOUR-GITHUB-USERNAME with your actual GitHub username.
+- Remove conflicting old A/AAAA records for @ and conflicting A/CNAME records for www.
+- Do not remove MX/TXT email records if you use email.
+- DNS can take time to propagate.
+- After GitHub verifies the domain, enable "Enforce HTTPS" in Settings -> Pages.
+
+Future:
+- sdrl.co.in = SDRL marketing website
+- app.sdrl.co.in = CargoKhata application login

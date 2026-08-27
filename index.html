@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDRL | Transport Brokerage & Vehicle Allocation</title>
+  <meta name="description" content="SDRL connects company transport requirements with suitable cargo owners and vehicles." />
+  <style>
+    :root{
+      --navy:#082e5c;
+      --navy2:#0e427c;
+      --gold:#d99614;
+      --gold2:#f1b53a;
+      --ink:#14243a;
+      --muted:#64748b;
+      --soft:#f5f8fc;
+      --line:#dbe5ef;
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:white;
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,calc(100% - 36px));margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{
+      width:47px;height:47px;border-radius:14px;
+      background:linear-gradient(145deg,var(--gold2),var(--gold));
+      display:grid;place-items:center;color:white;font-weight:900;
+      box-shadow:0 8px 20px rgba(217,150,20,.22)
+    }
+    .brand strong{display:block;font-size:26px;color:var(--navy);letter-spacing:.5px}
+    .brand small{display:block;color:var(--muted);font-weight:700;font-size:10px;letter-spacing:1.7px}
+    .links{display:flex;align-items:center;gap:24px}
+    .links a{font-size:14px;font-weight:750}
+    .links a:hover{color:var(--gold)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:10px;font-weight:800;
+    }
+    .btn-gold{background:var(--gold);color:white}
+    .btn-outline{border:1px solid rgba(255,255,255,.45);color:white}
+    .hero{
+      color:white;
+      background:
+        radial-gradient(circle at 78% 20%,rgba(241,181,58,.18),transparent 26%),
+        linear-gradient(125deg,#061e3a 0%,#093463 58%,#0b3b70 100%);
+      overflow:hidden;
+    }
+    .hero-grid{
+      min-height:565px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:44px
+    }
+    .eyebrow{
+      display:inline-block;padding:7px 11px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.07);
+      color:#f9d99b;font-size:12px;font-weight:900;letter-spacing:1.2px
+    }
+    h1{font-size:clamp(43px,5vw,69px);line-height:1.02;letter-spacing:-2px;margin:19px 0}
+    h1 span{color:var(--gold2)}
+    .hero p{font-size:18px;color:#d5e2f1;max-width:680px;margin:0 0 28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .visual{
+      height:390px;border-radius:28px;
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(rgba(6,30,58,.12),rgba(6,30,58,.18)),
+        url('sdrl-hero.jpg') center/cover;
+      box-shadow:0 30px 80px rgba(0,0,0,.3)
+    }
+    .flow{margin-top:-38px;position:relative;z-index:3}
+    .flow-box{
+      background:white;border:1px solid var(--line);border-radius:18px;
+      display:grid;grid-template-columns:repeat(3,1fr);
+      box-shadow:0 18px 50px rgba(8,46,92,.11);overflow:hidden
+    }
+    .step{padding:23px;display:flex;gap:13px}
+    .step:not(:last-child){border-right:1px solid var(--line)}
+    .n{
+      width:40px;height:40px;flex:0 0 40px;border-radius:10px;
+      display:grid;place-items:center;background:#edf3f9;color:var(--navy);font-weight:900
+    }
+    .step b{display:block;color:var(--navy);margin-bottom:3px}
+    .step span{font-size:13px;color:var(--muted)}
+    section{padding:78px 0}
+    .kicker{font-size:12px;font-weight:900;letter-spacing:1.7px;color:var(--gold);text-transform:uppercase}
+    h2{font-size:clamp(30px,4vw,45px);line-height:1.1;color:var(--navy);margin:8px 0 13px;letter-spacing:-1px}
+    .lead{color:var(--muted);font-size:17px;max-width:760px}
+    .services{background:var(--soft)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:30px}
+    .card{background:white;border:1px solid var(--line);border-radius:17px;padding:24px}
+    .card strong{display:block;color:var(--navy);font-size:18px;margin-bottom:7px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+    .panel{
+      border:1px solid var(--line);border-radius:20px;padding:29px;background:linear-gradient(145deg,#f8fafc,#fff);
+      box-shadow:0 12px 36px rgba(8,46,92,.07)
+    }
+    .panel h3{margin:0 0 13px;color:var(--navy);font-size:23px}
+    .ticks{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:11px}
+    .ticks li{color:#485970}
+    .ticks li:before{content:"✓";color:var(--gold);font-weight:900;margin-right:9px}
+    .app-strip{
+      background:linear-gradient(120deg,#fff8e8,#fff 55%,#eef5fb);
+      border-top:1px solid #f1dfba;border-bottom:1px solid #f1dfba;
+    }
+    .app-grid{display:grid;grid-template-columns:1fr auto;gap:35px;align-items:center}
+    .app-name{font-size:38px;font-weight:950;color:var(--navy);letter-spacing:-1.5px}
+    .app-name span{color:#f07b18}
+    .coming{
+      display:inline-block;margin-bottom:10px;padding:6px 10px;border-radius:999px;
+      background:#fff1db;color:#a55d00;font-weight:900;font-size:12px
+    }
+    .disabled{
+      display:inline-flex;padding:13px 20px;border-radius:10px;background:#dbe2ea;
+      color:#718096;font-weight:850;cursor:not-allowed
+    }
+    .contact{background:#061e3a;color:white}
+    .contact h2{color:white}
+    .contact p{color:#d2deeb}
+    .contact-box{
+      margin-top:25px;padding:24px;border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;background:rgba(255,255,255,.05);
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px
+    }
+    .contact-box small{display:block;color:#91a7bf;font-weight:800;margin-bottom:5px}
+    .contact-box strong{font-size:16px}
+    footer{background:#041526;color:#aebed0;padding:24px 0;font-size:13px}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    @media(max-width:900px){
+      .links a:not(.btn){display:none}
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .hero-grid{padding:52px 0}
+      .visual{height:300px}
+      .flow-box{grid-template-columns:1fr}
+      .step:not(:last-child){border-right:0;border-bottom:1px solid var(--line)}
+      .cards{grid-template-columns:1fr 1fr}
+      .app-grid{grid-template-columns:1fr}
+      .contact-box{grid-template-columns:1fr}
+    }
+    @media(max-width:580px){
+      .container{width:min(100% - 24px,1160px)}
+      .brand strong{font-size:22px}
+      .links .btn{padding:10px 13px}
+      .hero-grid{gap:24px}
+      h1{font-size:42px}
+      section{padding:60px 0}
+      .cards{grid-template-columns:1fr}
+      .foot{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#home">
+        <div class="mark">S</div>
+        <div><strong>SDRL</strong><small>TRANSPORT BROKER</small></div>
+      </a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#cargokhata">CargoKhata</a>
+        <a class="btn btn-gold" href="#contact">Contact Us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">TRANSPORT BROKERAGE • VEHICLE ALLOCATION</div>
+        <h1>Connecting company loads with the <span>right vehicle partners.</span></h1>
+        <p>SDRL helps businesses coordinate transport requirements by connecting them with suitable cargo and vehicle owners for dependable road movement.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#contact">Share Transport Requirement</a>
+          <a class="btn btn-outline" href="#about">Know SDRL</a>
+        </div>
+      </div>
+      <div class="visual" aria-label="Cargo truck on highway"></div>
+    </div>
+  </section>
+
+  <div class="container flow">
+    <div class="flow-box">
+      <div class="step"><div class="n">1</div><div><b>Requirement Received</b><span>Company shares route, load and vehicle requirement.</span></div></div>
+      <div class="step"><div class="n">2</div><div><b>Vehicle Allocated</b><span>SDRL coordinates with a suitable cargo or vehicle owner.</span></div></div>
+      <div class="step"><div class="n">3</div><div><b>Movement Coordinated</b><span>Trip placement and transport follow-up are coordinated.</span></div></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="kicker">About SDRL</div>
+        <h2>A simple link between transport demand and vehicle supply.</h2>
+        <p class="lead">SDRL operates as a transport broker. We receive transport requirements from companies and coordinate with cargo owners and vehicle partners to arrange suitable road transportation.</p>
+      </div>
+      <div class="panel">
+        <h3>Our focus</h3>
+        <ul class="ticks">
+          <li>Understanding company transport requirements</li>
+          <li>Coordinating suitable vehicle availability</li>
+          <li>Connecting companies with cargo and vehicle partners</li>
+          <li>Supporting smooth booking and movement coordination</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="kicker">What We Do</div>
+      <h2>Basic transport brokerage services.</h2>
+      <p class="lead">This first website is intentionally simple. We will expand service details, routes, enquiry workflows and partner registration as SDRL grows.</p>
+      <div class="cards">
+        <div class="card"><strong>Transport Requirements</strong><p>Receive road transport and vehicle requirements from companies.</p></div>
+        <div class="card"><strong>Vehicle Allocation</strong><p>Coordinate with cargo owners and vehicle partners for suitable availability.</p></div>
+        <div class="card"><strong>Trip Coordination</strong><p>Support placement and movement communication between the parties.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="app-strip" id="cargokhata">
+    <div class="container app-grid">
+      <div>
+        <div class="coming">COMING SOON</div>
+        <div class="app-name">Cargo<span>Khata</span></div>
+        <h2 style="font-size:30px">Our transport accounting & management application.</h2>
+        <p class="lead">CargoKhata login will be added here later. For now, we are keeping the website focused only on SDRL's transport brokerage business.</p>
+      </div>
+      <div>
+        <span class="disabled">CargoKhata Login — Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="kicker">Contact SDRL</div>
+      <h2>Have a transport requirement?</h2>
+      <p>We will add SDRL's official phone, email and business address here before the final public version.</p>
+      <div class="contact-box">
+        <div><small>Website</small><strong>sdrl.co.in</strong></div>
+        <div><small>Phone / WhatsApp</small><strong>To be updated</strong></div>
+        <div><small>Email</small><strong>To be updated</strong></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div><strong style="color:white">SDRL</strong> — Transport Brokerage & Vehicle Allocation</div>
+    <div>© 2026 SDRL. All rights reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
